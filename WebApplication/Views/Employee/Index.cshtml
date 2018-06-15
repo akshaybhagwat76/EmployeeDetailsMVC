@@ -1,0 +1,161 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<style>
+    body {
+        background-color: #eee;
+    }
+
+    *[role="form"] {
+        max-width: 530px;
+        padding: 15px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 0.3em;
+    }
+
+    *[role="form"] h2 {
+        margin-left: 5em;
+        margin-bottom: 1em;
+    }
+
+    label.success {
+        color: #5cb85c;
+        display: inline-block;
+        margin-left: 5px;
+    }
+
+    label.error {
+        color: red;
+    }
+     input.error,select.error{
+         border:1px dotted #cc5965;
+     }
+</style>
+
+<div class="container">
+    <form class="form-horizontal" role="form" id="myForm" action="javascript:;">
+        <h2>Registration Form</h2>
+        <div class="form-group">
+            <label for="firstName" class="col-sm-3 control-label">Full Name</label>
+            <div class="col-sm-9">
+                <input type="text" id="firstName" placeholder="Full Name" class="form-control validate" autofocus>
+                <span class="help-block">Last Name, First Name, eg.: Smith, Harry</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">Email</label>
+            <div class="col-sm-9">
+                <input type="email" id="email" placeholder="Email" class="form-control validate">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+                <input type="password" id="password" placeholder="Password" class="form-control validate">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
+            <div class="col-sm-9">
+                <input type="date" id="birthDate" class="form-control validate">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="country" class="col-sm-3 control-label">Country</label>
+            <div class="col-sm-9">
+
+                <select id="drp1" onchange="getStates()" class="form-control validate">
+                    <option>SELECT</option>
+                </select>
+
+            </div>
+        </div> <!-- /.form-group -->
+
+        <div class="form-group">
+            <label for="state" class="col-sm-3 control-label">State</label>
+            <div class="col-sm-9">
+
+                <select id="drp2" onchange="getCities()" class="form-control validate">
+                    <option value="">SELECT</option>
+                </select>
+
+            </div>
+        </div> <!-- /.form-group -->
+        <div class="form-group">
+            <label for="state" class="col-sm-3 control-label ">City</label>
+            <div class="col-sm-9 ">
+
+                <select id="drp3" class="form-control validate">
+                    <option value="">SELECT</option>
+                </select>
+
+            </div>
+        </div> <!-- /.form-group -->
+
+        <div class="form-group">
+            <label class="control-label col-sm-3">Gender</label>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="femaleRadio" name="rdbGender" value="Female">Female
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="maleRadio" name="rdbGender" value="Male">Male
+                        </label>
+                    </div>
+                    <label id="lblrdbError" class="inline error"></label>
+                </div>
+            </div>
+        </div> <!-- /.form-group -->
+
+
+        <div class="form-group">
+            <label class="control-label col-sm-3">Meal Preference</label>
+            <div class="col-sm-9" id="mealPreferences">
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="chk" value="1" id="LowSalt">Low Salt
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="chk" value="2" id="LowCalorie">Low Calorie
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="chk" value="3" id="HighVeg">High Veg
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="chk" value="4" id="Non-veg">Non-veg
+
+                </label>
+                <label id="lblchkError" class="inline error"></label>
+
+            </div>
+
+        </div> <!-- /.form-group -->
+
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox">I accept <a href="#">terms</a>
+                    </label>
+                </div>
+            </div>
+        </div> <!-- /.form-group -->
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <button type="button" class="btn btn-primary btn-block">Register</button>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <label id="lblError" class="inline success"></label>
+        </div>
+    </form> <!-- /form -->
+</div> <!-- ./container -->
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/employee.js"></script>
